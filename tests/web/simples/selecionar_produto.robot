@@ -6,6 +6,7 @@ Test Teardown    Close Browser    # No final, fecha o navegador
 *** Variables ***
 ${url}    https://www.saucedemo.com/
 ${browser}    Chrome    # opções de navegador como explore, edge
+${timeout}    5000ms
 
 *** Test Cases ***
 # Frases --> Keywords
@@ -36,7 +37,7 @@ Dado que acesso o site SauceDemo
     Open Browser    url=${url}    browser=${browser}
     Maximize Browser Window
     Set Browser Implicit Wait    10000ms
-    Wait Until Element Is Visible    css=.login_logo    5000ms    # unidade 5000ms / pagina de transição wait
+    Wait Until Element Is Visible    css=.login_logo    ${timeout}    # unidade 5000ms / pagina de transição wait
 Quando preencho o campo usuario
     [Arguments]    ${username}
     Input Text     css=[data-test="username"]    ${username}  
@@ -55,7 +56,8 @@ Entao sou direcionado para pagina de produtos
     #Wait Until Element Is Visible    css=[data-test="title"] 
     #Element Text Should Be    css=[data-test="title"]    Products
     # substitui as duas linha de código, e pode identificar um elemento na tela
-    Wait Until Element Contains    css=[data-test="title"]    Products    5000ms
+    # toda transição de tela, por prática de anti frágil, usamos espera para antes de um comando. 
+    Wait Until Element Contains    css=[data-test="title"]    Products    ${timeout}
 
  Quando clico no produto
      [Arguments]    ${product_name}    ${product_price}
@@ -64,7 +66,7 @@ Entao sou direcionado para pagina de produtos
      Click Element    css=img[alt="${test_product_name}"]            
 
 Entao sou direcionado para pagina do produto
-    Wait Until Element Is Visible    name=back-to-products
+    Wait Until Element Is Visible    name=back-to-products    ${timeout}
     Element Should Be Visible        name=back-to-products    Back to products
     Element Should Be Visible        css=div.inventory_details_name.large_size    ${test_product_name}    
     Element Should Be Visible        css=div.inventory_details_price    ${test_product_price}
@@ -94,7 +96,7 @@ E clico em Logout
     Click Element    link=Logout
 
 Então sou direcionado para pagina de login
-    Wait Until Element Is Visible    css=input.submit-button.btn_action    5000ms
+    Wait Until Element Is Visible    css=input.submit-button.btn_action    ${timeout}
 
 
 

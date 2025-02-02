@@ -1,0 +1,97 @@
+POM - 
+O Page Object Model (POM) é um padrão de projeto,
+visa organizar o código de teste de forma mais eficiente.
+Tests/web/pom/__init__.robot
+                __init.robot
+                     Settings
+                        Resource    ../../../pages/base_page.robot
+                        Suite Setup    Obter Data e hora
+                        Test Setup    base_page.Abrir navegador
+                        Test Teardown    base_page.Fechar navegador    
+
+inicio
+PAGE BASE ações em comuns nas páginas de mapeamentos
+        SETTINGS
+            Biblioteca e Configurações
+        VARIABLES
+            Variáveis globais
+        KEYWORDS
+            palavras chaves como "abrir o navegador", "clicar no carrinho", "burguer", "ancorar", "nome de seção"
+---------------------------------------------------------------------------------------------------------
+Login Page
+        SETTINGS
+            Biblioteca
+        VARIABLES
+            vão ser os seletores dos elementos da página
+        KEYWORDS
+            vão ser as ações: preencher usuario, preencher senha..
+-----------------------------------------------------------------------------------------------------------
+Page inventory
+    SETTINGS
+        Biblioteca
+    VARIABLES
+        vão ser os seletores dos elementos da página 
+    KEYWORDS
+    vão ser as ações: clicar no produto
+    Ações  que podem ser aplicada: filtro as 4, produtos: clicar imagem, texto, botao add, botao remove, preço, 
+---------------------------------------------------------------------------------------------------------------
+Page inventory item
+    SETTINGS
+        Biblioteca
+    VARIABLES
+        vão ser os seletores dos elementos da página.
+    KEYWORDS
+        vão ser as ações: clicar no botao "add to cart"
+    Ações que pode ser aplicada: imagem, preço, add cart,  remove, titulo do produto, ancora
+-------------------------------------------------------------------------------------------------------------------------
+Page Carrinho obs: geralmente a ultima página não há ações mas pode ocorrer.
+    SETTINGS
+        Biblioteca
+    VARIABLES
+        vão ser os seletores dos elementos da página.
+    KEYWORDS
+        vão ser as ações:
+    Ações que podem ser aplicada: continue, remover
+------------------------------------------------------------------------------------------------------------
+FINAL MONTAR O TESTE 
+    SETTINGS
+        resource    page_base
+    Test Cases
+    'nome do teste'
+----------------------------------------------------------------------------------------------------------------------------------------
+Tópico 1- forma de registrar e organizar a captura de screenshot:
+     screenshots/saucedemo/${date}/${TEST_NAME}/${screenshot_name}.png
+    # 1 - screenshots/system_name/test_selecionar_po/date.png - funcionalidade 2025-02-02_2011
+    # 2 - screenshots/system_name/date/teste_name.jng - data
+    # 3 - screenshots/system_name/ano/mes/dia/horas/test_name
+----------------------------------------------------------------------------------------------------------------------
+
+Tópico 2- Comando e a descrição do momento do teste:
+Setup/Teardown->	    Quando executa?>	                 Onde definir?
+    Suite Setup->	    Antes de todos os testes da suíte>	 *** Settings ***
+    Suite Teardown->	Depois de todos os testes da suíte>	 *** Settings ***
+    Setup->         	Antes de cada caso de teste>	     Dentro do caso de teste ou Test Setup em Settings
+    Teardown->      	Depois de cada caso de teste>	     Dentro do caso de teste ou Test Teardown em Settings
+
+    Set global Variable->  para todos os testes em todas as suítes
+    Set Suite Variable-> restrito apenas à suíte atual
+   
+---------------------------------------------------------------------------------------------------------------------
+Tópico 3-  Mapeamento do menu burguer
+obs: pode ser feita com 6 ações:
+        burguer, all item, about, logout, reset app, fechar
+
+     pode ser feita com 4 ações:
+           exemplo: forma genérica
+                Click Element    id=react=burguer-menu-btn
+                Click Element    id=logout_sidebar_link
+                Wait Until Element Is Visible    css=.login_log
+--------------------------------------------------------------------------------------------------------------
+Tópico 4 Espera :
+                    Implicit wait espera global 
+                    Explicit Wait espera específica
+-----------------------------------------------------------------------------------------------------------------------
+Tópico 5 relatório
+    Extenções baixar Live Server Ritwck dey
+    selecionar report.html através do live server
+
