@@ -1,6 +1,8 @@
 POM - 
 O Page Object Model (POM) é um padrão de projeto,
 visa organizar o código de teste de forma mais eficiente.
+Instalação: pip install robotframework-seleniumlibrary 
+            pip install robotframework
 Tests/web/pom/__init__.robot
                 __init.robot
                      Settings
@@ -92,6 +94,9 @@ Tópico 4 Espera :
                     Explicit Wait espera específica
 -----------------------------------------------------------------------------------------------------------------------
 Tópico 5 relatório
-    Extenções baixar Live Server Ritwck dey
+    Extensões baixar Live Server Ritwck dey
     selecionar report.html através do live server
-
+--------------------------------------------------------------------------------------------------------------------------
+Tópico 6 rodar todos os testes 
+    terminal
+    robot .\tests\web\po\      

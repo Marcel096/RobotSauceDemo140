@@ -20,7 +20,6 @@ Selecionar Produto
     Preencher Senha    secret_sauce
     Tirar Screenshot    2- Login Preenchido
     Clicar no botao login
-    # Checar o elemento, no teste e nunca nas pages
     Element Text Should Be    ${titulo_secao}    Products
     Tirar Screenshot    3- Lista de Produto
     Clicar no Produto    ${product_name}

@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 
 
 *** Variables ***
-# Vari´veis em Page Object são os seletores dos elementos da página
+# Variáveis em Page Object são os seletores dos elementos da página
 ${txt_usuario}    css=[data-test="username"]
 ${txt_senha}      css=[data-test="password"]
 ${btn_login}      id=login-button

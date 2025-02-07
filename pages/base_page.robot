@@ -22,9 +22,8 @@ Abrir navegador
     Wait Until Element Is Visible    css=.login_logo    ${timeout}
 
 Fechar navegador
-    Sleep    5000ms    # pode ser necessário para dar tempo
-                      # de realizar a última ação/validação
-    # Delete Cookie     
+    Sleep    5000ms    # pode ser necessário para dar tempo para realizar a última ação/validação  
+                       
     Close Browser  
 
 
@@ -37,9 +36,9 @@ Realizar Logout
     Click Element                    id=react-burger-menu-btn
     Click Element                    id=logout_sidebar_link
     Wait Until Element Is Visible    css=.login_logo
-    # forma específica
-   # Click Button    id=react=burguer-menu-btn
-    #Click Link    id=logout_sidebar_link
+    # forma específica do selenium
+    # Click Button    id=react=burguer-menu-btn
+    # Click Link    id=logout_sidebar_link
 
 Obter Data e hora
     # Ler a data e hora do sistema operacional

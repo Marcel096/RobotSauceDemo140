@@ -1,0 +1,99 @@
+Teste Mobile
+
+O que são aplicações Mobile?
+
+- app - aplicativos para smartphone (Android e Ios)
+- tablets
+- smartvs
+- sistemas embarcados em veículos (GPS / AV)
+- sistemas embarcados em eletrodomésticos
+- smartwatches
+- smartband
+- smartwear (vestíveis)
+
+Tipos de desenvolvimento / Aplicativos Mobile
+- Web App : Falso aplicativos - site formatado como se fosse um app
+- Nativo: Feito sob medida para o Android ou Ios
+- hibrido: Um time trabalha em um projeto que produz os 2 apps
+
+O tempo de automação para testes mobile acaba sendo 30 a 50% maior
+O que demora é a configuração inicial e o mapeamento
+
+Os tests automatizados podem ser realizados:
+- Localmente:
+---> Conectar o celular no computador via cabo USB
+(Ativar o modo desenvolvedor / Autorizar)
+---> Emulador
+-------------------------------------------------------------------------------------
+- Remoto:
+---> Aparelhos físicos
+--> Emulador
+
+
+Computador ou Notebook Ideal
+- equivalente a um i5 ou superior, 10 geração em diante
+- Memória RAm: 16 GB
+- HD: SSD 500 GB
+
+Configuração inicial
+- Cenário do Teste Remoto
+1 - Escolher um fornecedor e criar uma conta (www.saucelabs.com)
+
+
+2 - Downloard e Upload do um Apk Info (www.Apkpure.com/br)
+    baixar apk info
+3 - Upload do app que vamos testar (mda)
+    https://github.com/saucelabs/my-demo-app-android/releases
+    baixar mda 2.0.1
+-------------------------------------------------------------------------------------
+        4  - Selecionar um emulador ou aparelho,  e subir os 2 apps
+        5 - Vamos usar o Apk info para descobrir:
+        - appPackage: com.saucelabs.mydemoapp.android
+        - appActivity: com.saucelabs.mydemoapp.android.view.activities.SplashActivity  
+-------------------------------------------------------------------------------------
+6 - Baixar e instalar no computador o appium Inspector
+7 - Criar e executar um perfil de teste no appium 
+8 - Inspecionar o app - descobrir os seletores
+
+9 - baixar  android studio: https://developer.android.com/studio
+10 - add  sdk 9 28. ok
+11 - clicar virtual e selecionar Pixel 7 pro    
+12 - 
+
+   - Exportar o script ou  seletores
+    - Importar, ajustar e programar complementos
+
+
+ app package = com.saucelabs.mydemoapp.android
+appActivity = com.saucelabs.mydemoapp.android.view.activities.SplashActivity
+
+Teste de web e apium com selenium puro não pode ser feito no mesmo projeto.
+
+--------------------------------------------------------------------------------------------
+Mobile 
+    Instalações
+    Find keywords at: http://serhatbolsu.github.io/robotframework-appiumlibrary/AppiumLibrary.html
+    pip install robotframework 
+    pip install robotframework-appiumlibrary
+    pip install Appium-Python-Client==3.2.1 Atenção se houver problema no client 
+
+    Configurações de armazenamento das seriais (Sauce  access)
+    # acesso temporário:                        set-item -Path Env:\SAUCE_ACCESS_KEY -Value 'senha de acesso'
+    # Comando pra saber a o acesso no terminal: Get-item Env:\SAUCE_ACCESS_KEY 
+     Get-item Env:\SAUCE_ACCESS_KEY  
+     Permanente
+    [Environment]::SetEnvironmentVariable('NomeDaVariavel', 'valor')
+
+   
+
+
+    Rodar através do terminal
+    robot .\tests\mobile\selecionar_produto_mobile.robot 
+
+    Suite Setup = desembalar a caixa do bis 
+    Test setup = desembala do bis
+    Test Teardown = amassar a embalagem
+    Suite Teardown = jogar a caixinha do bis fim do tudo
+    Test       =   comer o chocolate
+
+
